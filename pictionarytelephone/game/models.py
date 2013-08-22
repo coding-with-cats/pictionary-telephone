@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+'''
+class Drawing(models.model):
+	previous = models.ForeignKey("Caption")
+	content = models.ImageField()
+
+class Caption(models.model):
+	previous = models.ForeignKey("Drawing")
+	content = models.CharField()
+'''
