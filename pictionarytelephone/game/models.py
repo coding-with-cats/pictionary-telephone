@@ -1,11 +1,24 @@
+import base64
+
 from django.db import models
 
-'''
-class Drawing(models.model):
-	previous = models.ForeignKey("Caption")
-	content = models.ImageField()
+class Drawing(models.Model):
 
-class Caption(models.model):
+    _image = models.TextField(
+            db_column='image',
+            blank=True)
+
+    @property
+    def image(self):
+        return base64.decodestring(self._image)
+
+    @image.setter
+    def image(self, image):
+        self._image = base64.encodestring(image)
+
+    previous = models.ForeignKey("Caption")
+
+class Caption(models.Model):
 	previous = models.ForeignKey("Drawing")
-	content = models.CharField()
-'''
+	content = models.CharField(max_length='500')
+    
