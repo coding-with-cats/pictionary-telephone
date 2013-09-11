@@ -10,7 +10,7 @@ def play(request):
 	    </head>
 	    	<div class="tools">
 			  <a href="#tools_sketch" data-tool="marker">Marker</a>
-			  <a href="#tools_sketch" data-tool="eraser">Eraser</a>
+			  <a href="#tools_sketch" data-tool="eraser" data-size="10">Eraser</a>
 			</div>
 			<canvas id="tools_sketch" width="800" height="300"></canvas>
 			<script type="text/javascript">
