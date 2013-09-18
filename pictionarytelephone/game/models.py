@@ -7,4 +7,3 @@ class Drawing(models.Model):
 class Caption(models.Model):
 	previous = models.ForeignKey("Drawing")
 	content = models.CharField(max_length='500')
-    

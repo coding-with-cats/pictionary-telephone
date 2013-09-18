@@ -1,0 +1,38 @@
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/static/sketch.js"></script>
+  <script>
+    $(function() {
+      var canvas = document.getElementById('tools_sketch');
+      $('#image-form').submit(function() {
+          $('#image-data').val(canvas.toDataURL());
+        });
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+{% if drawing %}
+  <div class="tools">
+    <a href="#tools_sketch" data-tool="marker">Marker</a>
+    <a href="#tools_sketch" data-tool="eraser" data-size="10">Eraser</a>
+  </div>
+  <canvas id="tools_sketch" width="800" height="300"></canvas>
+  <form id="image-form" method="post">
+    <input type="hidden" name="image-data" id="image-data" value="">
+    <input type="submit" id="submit-button">
+  </form>
+  <script type="text/javascript">
+    $(function() {
+      $('#tools_sketch').sketch({defaultColor: "#000"});
+    });
+  </script>
+{% else %}
+  <form id="caption-form" method="post>
+    <input type="text" name="caption">
+    <input type="submit" id="submit-button">
+  </form>
+{% endif %}
+</body>
+</html>
