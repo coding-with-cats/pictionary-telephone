@@ -4,10 +4,15 @@ from django.shortcuts import redirect, render
 from game.models import Drawing
 
 def play(request):
+
     if request.POST:
-        drawing = Drawing()
-        drawing.image = request.POST["image-data"]
-        print request.POST["image-data"]
-        drawing.save()
+        for field_name, Model, attr in [("image-data", Drawing, 'image'),
+                                        ("caption", Caption, 'content')]:
+            if field_name in request.POST:
+                obj = Model()
+                setattr(obj, attr, request.POST[field_name]
+                print request.POST[field_name]
+                obj.save()
+
 
     return render(request, 'index.html', {'drawing': True})
