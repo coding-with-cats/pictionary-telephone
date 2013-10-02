@@ -1,7 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from game.models import Drawing
+from game.models import Drawing, Caption
 
 def play(request):
 
@@ -10,9 +10,9 @@ def play(request):
                                         ("caption", Caption, 'content')]:
             if field_name in request.POST:
                 obj = Model()
-                setattr(obj, attr, request.POST[field_name]
+                setattr(obj, attr, request.POST[field_name])
                 print request.POST[field_name]
                 obj.save()
 
 
-    return render(request, 'index.html', {'drawing': True})
+    return render(request, 'index.html', {'drawing': False})
