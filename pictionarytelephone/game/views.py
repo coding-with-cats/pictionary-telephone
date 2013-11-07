@@ -11,7 +11,7 @@ def play(request):
     user_id = None
     if request.POST:
         if "user_id" in request.COOKIES:
-            user_id = request.COOKIES("user_id")
+            user_id = request.COOKIES["user_id"]
             user = User.objects.get(id=user_id)
         else:
             user = User()
