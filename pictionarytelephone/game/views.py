@@ -28,3 +28,8 @@ def play(request):
     if user_id is None and request.POST:
         response.set_cookie("user_id", user.id)
     return response
+
+
+def history(request):
+    response = render(request, 'history.html')
+    return response

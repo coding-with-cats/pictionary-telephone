@@ -7,6 +7,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'game.views.play', name='play'),
+    url(r'^history', 'game.views.history', name='history')
     # url(r'^pictionarytelephone/', include('pictionarytelephone.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
